@@ -13,7 +13,7 @@ import AVFoundation
 class ViewController: UIViewController {
 
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
-    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    fileprivate var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
 
     private var player = AVQueuePlayer()
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         // Asset
         let URL = Bundle.main.url(forResource: "video", withExtension: "mp4")!
         let asset = AVURLAsset(url: URL)
-        let audioTrack = asset.tracks(withMediaType: AVMediaTypeAudio).first!
+        let audioTrack = asset.tracks(withMediaType: AVMediaType.audio).first!
 
         // Tap
         // Slightly modified audio tap sample https://developer.apple.com/library/ios/samplecode/AudioTapProcessor/Introduction/Intro.html#//apple_ref/doc/uid/DTS40012324-Intro-DontLinkElementID_2
